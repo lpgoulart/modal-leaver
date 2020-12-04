@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page leaver</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #app{
+            height: 100vh;
+            background: red;
+            display: flex;
+            /* justify-content: center;
+            align-items: center; */
+        }
+        #leaverDiv {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, .1);
+            z-index: 999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #leaverDiv .modal {
+            width: 400px;
+            min-height: 300px;
+            text-align: center;
+        }
+        .d-none {
+            display: none!important;
+        }
+    </style>
+</head>
+<body id="leaver">
+
+
+    <div id="leaverDiv" class=" d-none">
+        <div class="modal">
+            <h3>
+                oi tudo bem? pq se vai babaca?
+            </h3>
+
+            <div style="text-align: center;">
+                <button onclick="closed()" >subscribe</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="app">
+        <h1>hello world</h1>
+    </div>
+
+    <script>
+        var leaver = document.getElementById("leaver")
+        var div = document.getElementById("leaverDiv")
+        var content = document.getElementById("app")
+        leaver.addEventListener("mouseleave", ()=>{
+            div.classList.remove("d-none")
+            content.style.filter = "blur(8px)"
+        })
+
+        const closed = () => {
+            div.classList.add("d-none")
+            content.style.filter = "blur(0px)"
+        }
+
+    </script>
+</body>
+</html>
